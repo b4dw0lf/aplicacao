@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aplicacao.dtos.ProdutoDto;
-//import com.aplicacao.dtos.ProdutoDTO;
 import com.aplicacao.entidades.Produto;
-import  com.aplicacao.repositorios.ProdutoRepositorio;
+import com.aplicacao.repositorios.ProdutoRepositorio;
 
 @Service
 public class ProdutoServico {
@@ -31,12 +30,13 @@ public class ProdutoServico {
 	}
 
 	public Produto Selecionar(long id) throws Exception {
-		Produto viagem = Rep_Produto.findOne(id);
+		Produto produto = Rep_Produto.getById(id);
 
-		if (viagem == null) {
-			throw new Exception("Não existe esta viagem cadastrada");
+		if (produto == null) {
+			throw new Exception("Não existe este produto cadastrado!");
 		}
-		return viagem;
+		
+		return produto;
 	}
 	
 	public Produto Atualizar(ProdutoDto produtoDto) throws Exception{
@@ -52,5 +52,18 @@ public class ProdutoServico {
 		return Rep_Produto.save(produto);
 	}
 	
-	public 
+	public Produto Excluir(ProdutoDto produtoDto) throws Exception {
+		
+		Produto produto = new Produto();
+
+		produto.setCodigo(produtoDto.getCodigo());
+		produto.setDescricao(produtoDto.getDescricao());
+		produto.setQuantidadeEstoque(produtoDto.getQuantidadeEstoque());
+		produto.setTipo(produtoDto.getTipo());
+		produto.setValorFornecedor(produtoDto.getValorFornecedor());
+		
+		Rep_Produto.delete(produto);
+		
+		return produto;
+	}
 }

@@ -8,5 +8,5 @@ import com.aplicacao.entidades.Produto;
 @Repository
 public interface ProdutoRepositorio extends JpaRepository<Produto, Long> {
 
-	Produto findByDescricao(String Descricao);
+	
 }

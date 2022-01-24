@@ -3,7 +3,7 @@ package com.aplicacao.dtos;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import org.hibernate.validator.constraints.*;
-import com.aplicacao.entidades.TipoProduto;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class ProdutoDto implements Serializable {
 
@@ -11,7 +11,7 @@ public class ProdutoDto implements Serializable {
 		
 	private long Codigo;
 	private String Descricao;
-	private TipoProduto Tipo;
+	private int Tipo;
 	private double ValorFornecedor;
 	private int QuantidadeEstoque;
 	
@@ -45,11 +45,11 @@ public class ProdutoDto implements Serializable {
 	}
 	
 	@NotNull(message = "Tipo é obrigatório")
-	public TipoProduto getTipo() {
+	public int getTipo() {
 		return Tipo;
 	}
 
-	public void setTipo(TipoProduto tipo) {
+	public void setTipo(int tipo) {
 		Tipo = tipo;
 	}
 

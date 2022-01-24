@@ -22,8 +22,8 @@ public class Produto implements Serializable{
 	private long Codigo;
 	@Column(name = "Descricao", nullable = false)
 	private String Descricao;
-	@Column(name = "TipoProduto", nullable = false)
-	private TipoProduto Tipo;
+	@Column(name = "TipoProduto", nullable = false, table = "TipoProduto")
+	private int Tipo;
 	@Column(name = "ValorFornecedor", nullable = false)
 	private double ValorFornecedor;
 	@Column(name = "QuantidadeEstoque", nullable = false)
@@ -34,7 +34,7 @@ public class Produto implements Serializable{
 
 	}
 
-	public Produto(long Id, String Desc, TipoProduto Tipo, double Valor, int Qtd) {
+	public Produto(long Id, String Desc, int Tipo, double Valor, int Qtd) {
 		this.Codigo = Id;
 		this.Descricao = Desc;
 		this.Tipo = Tipo;
@@ -54,10 +54,10 @@ public class Produto implements Serializable{
 	public void setDescricao(String descricao) {
 		Descricao = descricao;
 	}
-	public TipoProduto getTipo() {
+	public int getTipo() {
 		return Tipo;
 	}
-	public void setTipo(TipoProduto tipo) {
+	public void setTipo(int tipo) {
 		Tipo = tipo;
 	}
 	public double getValorFornecedor() {
