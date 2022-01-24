@@ -26,14 +26,6 @@ public class ProdutoController  {
 
 	@Autowired
 	private ProdutoServico SrvProduto;
-	
-	public ProdutoController(){
-		ProdutoDto p = new ProdutoDto() {
-			private static final long serialVersionUID = 3399521708428917560L;
-			
-			
-		};
-	}
 
 	@PostMapping(path = "/cadastrar")
 	public ResponseEntity<Response<Produto>> Cadastrar(@Valid @RequestBody ProdutoDto produtoDto, BindingResult result) {
