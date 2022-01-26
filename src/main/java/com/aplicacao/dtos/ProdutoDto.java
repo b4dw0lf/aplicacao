@@ -1,8 +1,12 @@
 package com.aplicacao.dtos;
 
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import org.hibernate.validator.constraints.*;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class ProdutoDto implements Serializable {
